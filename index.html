@@ -233,7 +233,7 @@ function renderCV(){
 }
 function renderNews(){
  var q=byId('newssearch').value.toLowerCase().trim();
- var entries=featuredNews.concat(cv.filter(function(e){return e.year<=2023&&e.type!=='acquisizione'}),news);
+ var entries=featuredNews.slice();
  entries=entries.filter(function(e){return [e.title,e.curator,e.place,e.date,e.year].join(' ').toLowerCase().indexOf(q)>=0});
  entries.sort(function(a,b){return (b.year||0)-(a.year||0)});
  byId('newslist').innerHTML=entries.map(function(e){
